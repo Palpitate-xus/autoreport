@@ -33,11 +33,14 @@ jobs:
         with:
            python-version: 3.8
       - name: 'Install requirements'
-        run: pip install selenium
+        run: |
+          pip install selenium
+          pip install requests
       - name: 'running'
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          TOKEN: ${{ secrets.TOKEN }}
         run: |
           sudo cp -p ./chromedriver /usr/bin/
           chmod -R 777 /usr/bin/chromedriver
