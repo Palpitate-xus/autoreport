@@ -15,7 +15,7 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 chromedriver = "/usr/bin/chromedriver"
 os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
-driver.get("https://workflow.ecust.edu.cn/default/work/uust/zxxsmryb/mrybtb.jsp")
+driver.get("")
 
 try:
     # 最大化浏览器
@@ -38,13 +38,13 @@ try:
     driver.find_element_by_class_name("layui-layer-btn0").click()
     time.sleep(5)
     driver.close()
-    title = "健康打卡成功"
-    content = username + "已完成健康打卡"
+    title = "打卡成功"
+    content = username + "已完成打卡"
     url = 'http://pushplus.hxtrip.com/send?token='+token+'&title='+title+'&content='+content
     requests.get(url)
 except:
-    title = "健康打卡失败"
-    content = username + "未完成健康打卡"
+    title = "打卡失败"
+    content = username + "未完成打卡"
     url = 'http://pushplus.hxtrip.com/send?token='+token+'&title='+title+'&content='+content
     requests.get(url)
 
